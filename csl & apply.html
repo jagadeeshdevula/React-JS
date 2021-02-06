@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+var oja={
+	name : "pawan",
+        role : "Actor & Politician"
+}
+function jag(p1,p2){
+	console.log(this.name);
+        console.log(this.role);
+        console.log(p1);
+        console.log(p2);
+
+}
+jag.call(oja,"I am naidu","I m kaapu");
+
+</script>
+
+</body>
+</html>

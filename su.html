@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 190px;
+            height: 100vh;
+            border: 1px solid red;
+
+        }
+        .box2{
+            width: 190px;
+            height: 100vh;
+            border: 1px solid red;
+            margin-top: 3px;
+        }
+        .box3{
+            width: 190px;
+            height: 100vh;
+            border: 1px solid red;
+            margin-top: 3px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box1">
+        <p></p>
+        
+    </div>
+    <div class="box2">
+        <p></p>
+        
+    </div>
+    <div class="box2">
+        <p></p>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js""></script>
+
+    <script>
+        async function loadData() {
+            try{
+            var d = await $.ajax ("https://restcountries.eu/rest/v2/name/united");
+            $.each(d,function(index,obj){
+                $(".box1").append(obj.name).append('</br>');
+            });
+           
+            var e = await $.ajax ("https://restcountries.eu/rest/v2/currency/cop");
+            $.each(e,function(index,obj){
+                $(".box2").append(obj.name).append('</br>');
+            });
+
+
+            var f = await $.ajax ("https://restcountries.eu/rest/v2/callingcode/372");
+            $.each(f,function(index,obj){
+                $(".box3").append(obj.name).append('</br>');
+            });
+        }
+        catch{
+            console.log("Error. Please try again");
+        }
+
+        }
+        loadData();
+    </script>
+</body>
+</html>
